@@ -1,3 +1,5 @@
+require 'pry'
+
 describe 'Backer - ::new' do
   it 'takes a name on initialization, accessible through an attribute reader' do
     backer = Backer.new("Avi")
@@ -66,9 +68,11 @@ describe 'Project - More Advanced #add_backer' do
     ropes = Project.new("All The Ropes")
     arel = Backer.new("Arel")
     ropes.add_backer(arel)
+    binding.pry
 
     # Same thing here. There's only one place we can tell arel about his newly
     # backed project. Where does that need to happen?
     expect(arel.backed_projects).to include(ropes)
   end
 end
+
